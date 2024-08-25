@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ProductHope | Product manager Interview Practice</title>
  <meta name="title" content="PM Interview Practice Questions">
-    <meta name="description" content="Practice product manager interview questions that improves your product thinking and actually make you think building a muscle to tackle real world product problems.">
+    <meta name="description" content="Sharpen your product thinking with our curated PM interview questions. Practice real-world scenarios to build your product management skills and ace your next interview..">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.producthope.com/">
-    <meta property="og:title" content="ProductHope Community - Join the Growing Community of Product Managers">
-    <meta property="og:description" content="ProductHope is a community of Product Managers and enthusiasts passionate about making an impact and helping everyone grow together.">
+    <meta property="og:title" content="ProductHope | Product manager Interview Practices">
+    <meta property="og:description" content="Sharpen your product thinking with our curated PM interview questions. Practice real-world scenarios to build your product management skills and ace your next interview.">
     <meta property="og:image" content="https://i.imgur.com/I40y0wn.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.producthope.com/">
-    <meta property="twitter:title" content="ProductHope Community - Join the Growing Community of Product Managers">
-    <meta property="twitter:description" content="ProductHope is a community of Product Managers and enthusiasts passionate about making an impact and helping everyone grow together.">
+    <meta property="twitter:title" content="ProductHope | Product manager Interview Practice">
+    <meta property="twitter:description" content="Sharpen your product thinking with our curated PM interview questions. Practice real-world scenarios to build your product management skills and ace your next interview.">
     <meta property="twitter:image" content="https://i.imgur.com/I40y0wn.png">
 
     <!-- WhatsApp -->
-    <meta property="og:site_name" content="ProductHope Community">
+    <meta property="og:site_name" content="ProductHope | Product manager Interview Practice">
     <meta property="og:locale" content="en_US">
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -48,6 +48,7 @@ header {
     align-items: center;
     padding: 1rem;
     background-color: #23244a;
+    position:fixed;
 }
 header img.logo {
     height: 44px;
@@ -223,27 +224,30 @@ footer a:hover {
         { text: "Myntra observes a decrease in new user signups by 8%. What factors could be impacting signups, and how would you investigate them?", tag: "execution" },
         { text: "Moj experiences a decline in user-generated content creation. How would you approach this problem? What data analysis techniques will you use to understand the reason behind this decrease?", tag: "execution" },
         { text: "Google Maps sees a decrease in user-submitted reviews and ratings. How would you investigate this issue and what strategies would you propose to encourage more user contributions?", tag: "execution" },
-        {
-            text: "Netflix observes that viewers are spending less time browsing before selecting content. How would you analyze this behavior change and what improvements would you suggest for the content discovery experience?",
-            tag: "execution",
-        },
+        { text: "Netflix observes that viewers are spending less time browsing before selecting content. How would you analyze this behavior change and what improvements would you suggest for the content discovery experience?", tag: "execution" },
         { text: "What KPIs would you track to assess the performance of Notion's AI features in improving user productivity?", tag: "analytical" },
         { text: "How would you measure the impact of Duolingo's gamification elements on user learning outcomes and engagement?", tag: "analytical" },
     ];
+
     let currentCategory = "all";
     let currentQuestions = [];
     let timer;
+    let touchStartTime;
+    let touchEndTime;
+
     const startScreen = document.getElementById("start-screen");
     const questionScreen = document.getElementById("question-screen");
     const logoElement = document.getElementById("logo");
     const categoryButtons = document.querySelectorAll(".category-btn");
     const footerLinks = document.querySelectorAll(".footer-link");
+
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
+
     function filterQuestions() {
         if (currentCategory === "all") {
             currentQuestions = [...questions];
@@ -252,6 +256,7 @@ footer a:hover {
         }
         shuffleArray(currentQuestions);
     }
+
     function showQuestion() {
         if (currentQuestions.length === 0) {
             filterQuestions();
@@ -262,6 +267,7 @@ footer a:hover {
         document.getElementById("time").textContent = "0:00";
         startTimer();
     }
+
     function startTimer() {
         let seconds = 0;
         clearInterval(timer);
@@ -272,11 +278,13 @@ footer a:hover {
             document.getElementById("time").textContent = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
         }, 1000);
     }
+
     function resetApp() {
         startScreen.classList.remove("hidden");
         questionScreen.classList.add("hidden");
         clearInterval(timer);
     }
+
     function startQuestions(category) {
         currentCategory = category;
         filterQuestions();
@@ -284,31 +292,57 @@ footer a:hover {
         questionScreen.classList.remove("hidden");
         showQuestion();
     }
+
     function handleNavigation(e) {
         if (!questionScreen.classList.contains("hidden")) {
-            if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") {
-                return;
-            }
             if (e.target.closest(".logo") || e.target.closest("footer")) {
                 return;
             }
-            e.preventDefault();
-            showQuestion();
+            
+            if (e.type === "click" || (e.type === "keydown" && (e.key === "Enter" || e.key === " "))) {
+                e.preventDefault();
+                showQuestion();
+            }
         }
     }
+
+    function handleTouchStart(e) {
+        touchStartTime = new Date().getTime();
+    }
+
+    function handleTouchEnd(e) {
+        touchEndTime = new Date().getTime();
+        const touchDuration = touchEndTime - touchStartTime;
+
+        if (!questionScreen.classList.contains("hidden")) {
+            if (e.target.closest(".logo") || e.target.closest("footer")) {
+                return;
+            }
+
+            if (touchDuration < 300) {  // Considering taps shorter than 300ms
+                e.preventDefault();
+                showQuestion();
+            }
+        }
+    }
+
     logoElement.addEventListener("click", resetApp);
+    
     categoryButtons.forEach((button) => {
         button.addEventListener("click", (e) => startQuestions(e.target.dataset.category));
     });
+
     footerLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
             resetApp();
         });
     });
+
     document.addEventListener("keydown", handleNavigation);
     document.addEventListener("click", handleNavigation);
-    document.addEventListener("touchstart", handleNavigation);
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchend", handleTouchEnd);
 });
 
     </script>
