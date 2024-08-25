@@ -1,0 +1,37 @@
+/* Gradient text for the hero section */
+body {
+  magin:5px 10px;
+}
+.hero, header {
+  background: #23244A;
+}
+.section-head {
+  background: #f4dbc7;
+  color:#000;
+}
+.section-head a {
+  background:#23244A;
+  color:#fff;
+}
+.section-head a:hover {
+  background:#23244B;
+}
+.text-gradient {
+    background: linear-gradient(90deg, #4f46e5, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Additional styles for FAQ collapse functionality */
+.faq button.active + div {
+    display: block;
+}
+
+.faq i.rotate {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 467px) {
+    body {
+        margin:400px;
+    }
