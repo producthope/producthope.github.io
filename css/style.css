@@ -30,8 +30,3 @@ body {
 .faq i.rotate {
     transform: rotate(180deg);
 }
-
-@media (max-width: 467px) {
-    body {
-        margin:400px;
-    }
