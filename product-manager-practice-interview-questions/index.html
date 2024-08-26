@@ -27,154 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
-    <style>
-       body,
-html {
-    margin: 0;
-    padding: 0;
-    font-family: Roboto, Arial, sans-serif;
-    height: 100%;
-    background-color: #23244a;
-    color: #fff;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #23244a;
-    position:fixed;
-    width:100%;
-}
-header img.logo {
-    height: 44px;
-}
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
-}
-.logo span:first-child {
-    color: #4caf50;
-}
-.logo span:last-child {
-    color: #ff9800;
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropbtn {
-    background-color: #022b3a;
-    color: #fff;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #1c4b5d;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    color: #000;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-.dropdown:hover .dropbtn {
-    background-color: #2c4e66;
-}
-main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    text-align: center;
-}
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-transform: capitalize;
-}
-h2 {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    font-weight: 400;
-    color: #d2592a;
-    line-height: 1.6rem;
-}
-#question {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-#timer {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-#tag {
-    font-size: 1rem;
-    color: #4caf50;
-    margin-bottom: 2rem;
-}
-#categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-.category-btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #d2592a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.category-btn:hover {
-    background-color: #ae3e12;
-}
-footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    background-color: #161842;
-    position: fixed;
-    bottom:0;
-    width:100%;
-}
-footer a {
-    color: #949494;
-    text-decoration: none;
-}
-footer a:hover {
-    text-decoration: underline;
-}
-.hidden {
-    display: none;
-}
-
-    </style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -204,38 +57,26 @@ footer a:hover {
                 <div id="tag"></div>
                 <div id="timer"><i class="fas fa-clock"></i> <span id="time">0:00</span></div>
             </div>
+            <div id="info-section" class="info-section">
+                    <p>Timer is to help you how much time you take to prepare the structure and come up with ideas.</p>
+                    <button id="close-info" aria-label="Close info">×</button>
+                </div>
         </main>
         <footer>
-            <a href="https://substack.com/@producthope/p-145717877" class="footer-link" target="_blank">Interview Prep Email Course</a>
-            <a href="https://forms.gle/ie2XQ7oVrdc1WCHM9" class="footer-link" target="_blank">Share your Feedback?</a>
+            <a href="#" class="footer-link" target="_blank">Interview Prep Email Course</a>
+            <a href="#" class="footer-link" target="_blank">Share your Feedback?</a>
         </footer>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-        const questions = [
+    const questions = [
         { text: "How will you improve the pick-up experience of Uber at Dubai Mall?", tag: "product-design" },
         { text: "How will you improve Google Pay specially for paying bills?", tag: "product-design" },
         { text: "Design a loyalty program for Blinkit that increases user retention.", tag: "product-design" },
-        { text: "How would you design a mobile app for retired individuals that just helps them handle loneliness and live happily?", tag: "product-design" },
-        { text: "How would you design a payment app for kids of 12 - 18 yrs of age?", tag: "product-design" },
-        { text: "How would you build a app for kids that encourages learnings around savings and investment?", tag: "product-design" },
-        { text: "Design a feature for Spotify that helps users discover new artists based on their listening habits.", tag: "product-design" },
-        { text: "How would you improve the food delivery experience for customers with dietary restrictions?", tag: "product-design" },
-        { text: "Create a feature for a Uber or Ola that prioritizes safety for late-night passengers.", tag: "product-design" },
         { text: "How would you improve the online learning experience for a massive open online course (MOOC) platform?", tag: "product-design" },
-        { text: "Should Swiggy Instamart enter into e-commerce? If yes, why?", tag: "product-strategy" },
-        { text: "How should Zerodha position itself against new entrants in the stock trading space?", tag: "product-strategy" },
-        { text: "Propose a market entry strategy for Cred to expand into international markets like the Middle East, Dubai etc.", tag: "product-strategy" },
         { text: "How should Netflix respond to the increasing competition in the streaming space from Disney+, Amazon Prime, and others?", tag: "product-strategy" },
         { text: "Should Airbnb expand into long-term / 12 months+ rentals? If yes, how would you approach this expansion?", tag: "product-strategy" },
-        { text: "Propose a strategy for Spotify to increase its revenue beyond music streaming.", tag: "product-strategy" },
-        { text: "How should LinkedIn diversify its product offerings to maintain growth in the face of emerging professional networking platforms?", tag: "product-strategy" },
-        { text: "How should Slack respond to the increasing integration of communication tools within productivity suites like Microsoft 365?", tag: "product-strategy" },
-        { text: "How should YouTube monetize its platform more effectively without compromising user experience?", tag: "product-strategy" },
-        { text: "How should Duolingo expand its product offerings to capture a larger share of the language learning market?", tag: "product-strategy" },
-        { text: "Do you think CRED should expand into investments business like Zerodha? If yes, how will you go about it.", tag: "product-strategy" },
-        { text: "Uber Eats notices a 15% increase in order cancellations over the past month. How would you investigate the cause and propose solutions?", tag: "execution" },
         { text: "Spotify observes that podcast listener retention has dropped significantly. What could be the reasons, and how would you approach solving this issue?", tag: "execution" },
         { text: "Airbnb sees a decline in bookings for urban properties while rural properties are thriving. How would you analyze this trend and what strategies would you propose to address it?", tag: "execution" },
         { text: "LinkedIn notices a decrease in user engagement with its newsfeed. How would you diagnose the problem and what steps would you take to improve engagement?", tag: "execution" },
@@ -244,44 +85,24 @@ footer a:hover {
         { text: "Myntra observes a decrease in new user signups by 8%. What factors could be impacting signups, and how would you investigate them?", tag: "execution" },
         { text: "Moj experiences a decline in user-generated content creation. How would you approach this problem? What data analysis techniques will you use to understand the reason behind this decrease?", tag: "execution" },
         { text: "Google Maps sees a decrease in user-submitted reviews and ratings. How would you investigate this issue and what strategies would you propose to encourage more user contributions?", tag: "execution" },
-        {
-            text: "Netflix observes that viewers are spending less time browsing before selecting content. How would you analyze this behavior change and what improvements would you suggest for the content discovery experience?",
-            tag: "execution",
-        },
-        { text: "Coursera sees a decline in course completion rates. How would you investigate the factors contributing to this and what strategies would you suggest to improve completion rates?", tag: "execution" },
-        { text: "Flipkart observes a higher than usual cart abandonment rate during its Big Billion Days sale. What could be the reasons, and how would you approach solving this problem?", tag: "execution" },
-        { text: "PhonePe sees a sudden drop in UPI transactions in a particular region. How would you go about identifying the root cause and proposing solutions?", tag: "execution" },
-        { text: "Ola notices a decrease in driver availability during peak hours in major metros. What factors might be contributing to this, and how would you address the issue?", tag: "execution" },
-        { text: "Swiggy observes that its newly launched Swiggy Instamart service is not gaining traction in certain cities. How would you investigate the reasons and propose strategies to improve adoption?", tag: "execution" },
-        { text: "BigBasket observes an increase in negative reviews related to product quality. How would you analyze this trend and what steps would you take to address the issue?", tag: "execution" },
-        { text: "What metrics would you track to measure the success of a new feature on Swiggy that allows users to tip delivery riders?", tag: "analytical" },
-        { text: "What metrics do you think Google Pay tracks every day?", tag: "analytical" },
-        { text: "How would you measure the impact of CRED's cashback offers on user retention?", tag: "analytical" },
-        { text: "What KPIs would you track to assess the performance of Ola's auto booking service?", tag: "analytical" },
-        { text: "How would you measure the effectiveness of Lenskart's AR-powered virtual try-on feature?", tag: "analytical" },
-        { text: "What metrics would you use to evaluate the success of Zomato's loyalty program?", tag: "analytical" },
-        { text: "How would you measure the effectiveness of Flipkart's new voice search feature?", tag: "analytical" },
-        { text: "What metrics would you use to evaluate the success of Cred's expansion into travel bookings?", tag: "analytical" },
-        { text: "How would you measure the effectiveness of Netflix's personalized recommendation algorithm?", tag: "analytical" },
-        { text: "How would you measure the impact of Spotify's podcast investment strategy on user engagement and retention?", tag: "analytical" },
-        { text: "What metrics would you use to evaluate the success of Apple's App Tracking Transparency feature?", tag: "analytical" },
-        { text: "How would you measure the effectiveness of TikTok's advertising platform for small businesses?", tag: "analytical" },
-        { text: "How would you measure the impact of Slack's Huddles feature on team collaboration and productivity?", tag: "analytical" },
+        { text: "Netflix observes that viewers are spending less time browsing before selecting content. How would you analyze this behavior change and what improvements would you suggest for the content discovery experience?", tag: "execution" },
         { text: "What KPIs would you track to assess the performance of Notion's AI features in improving user productivity?", tag: "analytical" },
         { text: "How would you measure the impact of Duolingo's gamification elements on user learning outcomes and engagement?", tag: "analytical" },
     ];
 
-    let currentCategory = "all";
+        let currentCategory = "all";
     let currentQuestions = [];
     let timer;
     let touchStartTime;
     let touchEndTime;
-
     const startScreen = document.getElementById("start-screen");
     const questionScreen = document.getElementById("question-screen");
     const logoElement = document.getElementById("logo");
     const categoryButtons = document.querySelectorAll(".category-btn");
     const footerLinks = document.querySelectorAll(".footer-link");
+    const infoSection = document.getElementById("info-section");
+    const closeInfoButton = document.getElementById("close-info");
+    let isInfoSectionClosed = false;
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -308,6 +129,11 @@ footer a:hover {
         document.getElementById("tag").textContent = question.tag;
         document.getElementById("time").textContent = "0:00";
         startTimer();
+
+        // Show info section if it hasn't been closed yet
+        if (!isInfoSectionClosed) {
+            infoSection.style.display = "block";
+        }
     }
 
     function startTimer() {
@@ -325,6 +151,8 @@ footer a:hover {
         startScreen.classList.remove("hidden");
         questionScreen.classList.add("hidden");
         clearInterval(timer);
+        isInfoSectionClosed = false;
+        infoSection.style.display = "block";
     }
 
     function startQuestions(category) {
@@ -337,7 +165,7 @@ footer a:hover {
 
     function handleNavigation(e) {
         if (!questionScreen.classList.contains("hidden")) {
-            if (e.target.closest(".logo") || e.target.closest("footer")) {
+            if (e.target.closest(".logo") || e.target.closest("footer") || e.target.closest("#info-section")) {
                 return;
             }
             
@@ -349,18 +177,22 @@ footer a:hover {
     }
 
     function handleTouchStart(e) {
+        if (e.target.closest("#info-section")) {
+            return;
+        }
         touchStartTime = new Date().getTime();
     }
 
     function handleTouchEnd(e) {
+        if (e.target.closest("#info-section")) {
+            return;
+        }
         touchEndTime = new Date().getTime();
         const touchDuration = touchEndTime - touchStartTime;
-
         if (!questionScreen.classList.contains("hidden")) {
             if (e.target.closest(".logo") || e.target.closest("footer")) {
                 return;
             }
-
             if (touchDuration < 300) {  // Considering taps shorter than 300ms
                 e.preventDefault();
                 showQuestion();
@@ -368,11 +200,18 @@ footer a:hover {
         }
     }
 
+    function closeInfoSection() {
+        infoSection.style.display = "none";
+        isInfoSectionClosed = true;
+    }
+
     logoElement.addEventListener("click", resetApp);
     
     categoryButtons.forEach((button) => {
         button.addEventListener("click", (e) => startQuestions(e.target.dataset.category));
     });
+
+    closeInfoButton.addEventListener("click", closeInfoSection);
 
     document.addEventListener("keydown", handleNavigation);
     document.addEventListener("click", handleNavigation);
