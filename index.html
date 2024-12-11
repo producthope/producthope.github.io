@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Hope</title>
+    <title>Product Hope - Community for Product Managers</title>
     <link rel="icon" href="https://i.imgur.com/OXAxDJx.png" type="image/png">
     <meta name="title" content="ProductHope Community - Join the Growing Community of Product Managers">
     <meta name="description" content="ProductHope is a community of Product Managers seeking new opportunities and aiming to advance their careers with the help of mock interviews and tailored preparation resources.">
@@ -26,102 +27,343 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        html {
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+    </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-white text-white">
 
-    <!-- Header Section -->
-    <header class="py-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <img src="https://i.imgur.com/I40y0wn.png" alt="Product Hope Logo" class="w-64">
-            <a href="https://chat.whatsapp.com/EwYuM34O3I3E04Fm43osYU" taregt="_blank" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition duration-300">
-                Join the Community
+    <header class="fixed w-full z-10 bg-[#1a1b5e]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold text-white"><img src="https://i.imgur.com/I40y0wn.png" alt="Product Hope Logo" class="w-48"></a>
+        <nav class="hidden md:flex space-x-8">
+            <a href="#about" class="text-white">About</a>
+            <a href="#pm-interview" class="text-white">PM Interview</a>
+            <a href="#apply" class="text-white">Apply</a>
+            <a href="/login" class="text-white">Login</a>
+        </nav>
+        <button id="menu-button" class="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#1a1b5e]">
+        <nav class="flex flex-col space-y-4 p-4">
+            <a href="#about" class="text-white hover:underline">About</a>
+            <a href="#pm-interview" class="text-white hover:underline">PM Interview</a>
+            <a href="#apply" class="text-white hover:underline">Apply Now</a>
+            <a href="#login" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-100">
+                Login
             </a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero py-20 px-4 sm:px-6 lg:px-8 text-center">
+        </nav>
+    </div>
+</header>
+    <section class="hero py-36 px-4 sm:px-6 lg:px-8 text-center">
         <div class="container mx-auto">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Elevate Your Product Management Journey</h1>
             <p class="text-lg md:text-xl mb-8 mx-auto w-full md:w-3/5">ProductHope is a community of Product Managers seeking new opportunities and aiming to advance their careers.</p>
+            <a href="#apply" class="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition duration-300">
+              Apply Now <span class="font-bold">@ ₹799 for year</span>
+            </a>
+        <p class="text-sm text-gray-300 mt-2">
+          Applicable for first <strong>50</strong> users only.
+        </p>
         </div>
     </section>
-
-<section class="section-head py-12 px-4 sm:px-6 lg:px-8">
-    <div class="container mx-auto flex flex-col md:flex-row items-center">
-        <!-- Text Section -->
-        <div class="md:w-1/2 text-left text-black">
-            <span class="bg-black text-xs font-bold px-2 py-1 rounded-md mb-2 inline-block text-white">NEW</span>
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ace Your Product Management Interviews</h2>
-            <p class="text-lg mb-4">
-                Check out our Substack email series for product management interview prep. Get key concepts, questions and answers you need to succeed in PM interviews.
-            </p>
-            <p class="text-lg font-bold mb-4">Topics We Covered:</p>
-            <ul class="list-disc ml-6 mb-4">
-                <li class="mb-2">Product Design & Strategy</li>
-                <li class="mb-2">Analytical Questions</li>
-                <li>Technical & Behavioral Questions</li>
-            </ul>
-            <a href="https://substack.com/@producthope/p-145717877" target="_blank" class="inline-flex items-center bg-blue-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition duration-300">
-                <i class="fas fa-arrow-right mr-2"></i> Get the Email Series
-            </a>
-        </div>
-
-        <!-- Image Section -->
-       <div class="md:w-1/2 mt-8 md:mt-0 md:pl-12 flex justify-center">
-            <img src="https://i.imgur.com/u2apnj6.png" alt="Email Series" class="w-1/2 rounded-lg shadow-lg">
-        </div>
-    </div>
-</section>
-
-  
-<section class="bg-blue-900 py-32 px-4 sm:px-6 lg:px-8">
-    <div class="container mx-auto text-center">
+<section id="about" class="bg-white py-24 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
         <!-- Section Heading -->
-        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">What Happens Inside the Community?</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center text-black">
+            What Happens Inside the Community?
+        </h2>
         
         <!-- Cards Container -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white text-blue-900 rounded-lg p-6 shadow-lg">
-                <h3 class="text-2xl font-bold mb-4">Job Board</h3>
-                <p class="text-lg mb-4">Discover job opportunities with insights about the company, role, industry, and domain.</p>
-                <!-- <a href="#" class="inline-block mt-4 text-yellow-400 font-semibold hover:text-yellow-300 transition duration-300">Learn More</a> -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Card 1 -->
+            <div class="border border-gray-200 rounded-lg shadow-sm">
+                <img src="https://i.imgur.com/VXNwkKM.png" alt="Product Hope Job board" class="w-full h-auto rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-black mb-4">Job Board</h3>
+                    <p class="text-base text-gray-600">
+                       Discover job opportunities with detailed insights about the company, industry, and domain. Know which one make sense for you upfront.
+                    </p>
+                </div>
             </div>
-            
-            <!-- Masterclass Card -->
-            <div class="bg-white text-blue-900 rounded-lg p-6 shadow-lg">
-                <h3 class="text-2xl font-bold mb-4">Masterclass</h3>
-                <p class="text-lg mb-4">Participate in masterclasses focused on specific skills to enhance your product management expertise.</p>
+            <div class="border border-gray-200 rounded-lg shadow-sm">
+                <img src="https://i.imgur.com/lQwK8XL.png" alt="Whatsapp Community of ProductHope" class="w-full h-auto rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-black mb-4">Community Support</h3>
+                    <p class="text-base text-gray-600">
+                        Get support for mock interviews, resume reviews, or answers to your pressing questions over our premium Whatsapp channel.
+                    </p>
+                </div>
             </div>
-
-            <!-- Resources Card -->
-            <div class="bg-white text-blue-900 rounded-lg p-6 shadow-lg">
-                <h3 class="text-2xl font-bold mb-4">Resources</h3>
-                <p class="text-lg mb-4">Access valuable artifacts, summaries, and insights from senior product leaders to guide your career.</p>
+            <div class="border border-gray-200 rounded-lg shadow-sm">
+                <img src="https://i.imgur.com/TwqKGnv.png" alt="Resrouces and artifacts by ProductHope" class="w-full h-auto rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-black mb-4">Resources</h3>
+                    <p class="text-base text-gray-600">
+                        Access valuable artifacts, summaries, and insights from senior product leaders to guide your career.
+                    </p>
+                </div>
             </div>
-
-            <!-- Community Support Card -->
-            <div class="bg-white text-blue-900 rounded-lg p-6 shadow-lg">
-                <h3 class="text-2xl font-bold mb-4">Community Support</h3>
-                <p class="text-lg mb-4">Get support for mock interviews, resume reviews, or answers to your pressing questions.</p>
-            </div>
+            <div class="border border-gray-200 rounded-lg shadow-sm">
+                <img src="https://i.imgur.com/vIuzsj3.png" alt="Masterclass by ProductHope" class="w-full h-auto rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-black mb-4">Masterclass</h3>
+                    <p class="text-base text-gray-600">
+                       Participate in masterclasses focused on improving specific skill set improving your product expertise.
+                </div>
+            </div>   
         </div>
     </div>
 </section>
-<section class="bg-white py-20 px-4 sm:px-6 lg:px-8">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl md:text-5xl font-bold text-black mb-4">
-            Explore opportunities, flourish within our community
+<section id="pm-interview" class="bg-gray-100 relative overflow-hidden">
+    <!-- Text Content -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-6">
+            Unlock PM Interview Mastery Series
         </h2>
-        <h2 class="text-3xl md:text-5xl font-bold text-black">
-            and gain invaluable benefits
-        </h2>
-      <!-- CTA Button -->
-        <a href="https://chat.whatsapp.com/EwYuM34O3I3E04Fm43osYU" taregt="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition duration-300 inline-block mt-6">
-            Join the Community
-        </a>
+        <p class="text-md md:text-lg text-gray-600 text-center">
+            Learn the frameworks, real-world interviews, and essential skills to land your dream PM role.
+        </p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="relative">
+        <img 
+            src="https://i.imgur.com/uRbF0Sa.png" 
+            alt="Product Manager Interview Mastery Series by ProductHope" 
+            class="w-full md:w-2/3 object-contain mx-auto"
+        >
     </div>
 </section>
+<section class="bg-bluel py-20 px-6 sm:px-10" style="background-color: #ffdbbe;">
+  <div class="container mx-auto flex flex-col md:flex-row items-center">
+    <!-- Text Section -->
+    <div class="md:w-1/2 text-gray-900">
+    <span class="bg-green-800 text-sm font-bold px-2 py-1 rounded-md mb-2 inline-block text-white">
+        BONUS CONTENT
+      </span>
+      <h2 class="text-4xl font-bold mb-6">
+        Getting Shortlisted
+      </h2>
+      <p class="text-gray-800 text-lg mb-6">
+        Let's embrace it, there is issue with supply & demand around PM jobs. Things that worked in 2020, will not work in 2024. That's why we have an entire module focussed on tips & tricks to get your resume shortlisted in 2025. No shortcut, just some high effort steps to increase your chances of shortlisting including improving your resume & LinkedIn Profile.
+      </p>
+      <h3 class="text-xl font-bold mb-4">Highlights:</h3>
+      <ul class="list-disc list-inside text-gray-800 space-y-3">
+        <li>Building your resume that converts.</li>
+        <li>Optimize your LinkedIn profile</li>
+        <li>Building your portfolio of projects</li>
+        <li>Outreach and asking for referrals</li>
+      </ul>
+    </div>
+
+    <!-- Image Section -->
+    <div class="md:w-1/2 mt-10 md:mt-0 md:pl-10">
+      <img 
+        src="https://i.imgur.com/cplb9Dg.png" 
+        alt="Getting Shortlisted" 
+        class="w-full"
+      >
+    </div>
+  </div>
+</section>
+<section id="apply" class="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <!-- Left Content -->
+    <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            Level Up Your Product Career
+        </h1>
+        <p class="text-lg text-gray-700 leading-relaxed">
+            Become part of a community, explore artifacts, guides, and interview prep resources, as well as all future releases to level up in your product career.
+        </p>
+    </div>
+
+    <!-- Right Content -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-lg md:w-1/3 w-full p-8">
+        <h3 class="text-sm font-semibold uppercase text-blue-700 mb-4">What You'll Get</h3>
+        <div class="bg-gray-100 rounded-md p-6 mb-6">
+            <h4 class="text-xl font-bold text-gray-900 mb-2">ProductHope Membership</h4>
+            <p class="text-3xl font-bold text-gray-900">₹799</p>
+            <p class="text-gray-600 text-sm">per year</p>
+        </div>
+        <ul class="space-y-4 text-gray-700 mb-6">
+            <li class="flex items-start">
+                <span class="text-teal-600 mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </span>
+                Whatsapp Community
+            </li>
+            <li class="flex items-start">
+                <span class="text-teal-600 mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </span>
+               PM Interview Mastery Series
+            </li>
+            <li class="flex items-start">
+                <span class="text-teal-600 mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </span>
+                Job Board with detailed insights about company
+            </li>
+        </ul>
+        <div class="py-3">
+            <form>
+                <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_PVu0DMMj1gEEF4" async> </script> 
+            </form>
+        </div>   
+        <!-- <button class="bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-center hover:bg-yellow-300 transition duration-300" disabled>
+            Apply Now
+        </button> -->
+    </div>
+</section>
+
+<section
+  class="relative py-32" style="background-color: #c04314;"
+>
+  <div class="container mx-auto relative z-10 text-center text-white px-6">
+    <!-- Title -->
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      Gain the Edge to Land Your Next Product Role
+    </h2>
+    <p class="text-lg text-gray-300 mb-6">
+      Surround yourself with like-minded PMs who are driven to grow.
+    </p>
+    <!-- CTA Button -->
+
+    <a
+      href="#access"
+      class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition duration-300 inline-block"
+    >
+      Access Now <span class="font-bold">@ ₹799 per year</span>
+    </a>
+  </div>
+</section>
+<section class="bg-gray-50 py-20 px-6 sm:px-10">
+  <div class="container mx-auto max-w-4xl">
+    <!-- Section Title -->
+    <h2 class="text-4xl font-bold text-gray-900 text-center mb-10">
+      Frequently Asked Questions
+    </h2>
+
+    <!-- FAQ Items -->
+    <div class="space-y-6">
+      <!-- FAQ Item 1 -->
+      <div class="border-b border-gray-300">
+        <button
+          class="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-900"
+          onclick="toggleFaq(this)"
+        >
+          <span>Who is this community for?</span>
+          <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <div class="hidden text-gray-600 py-4">
+          Community is for both aspiring product managers to Senior Product Managers. If you are a Product Leader and wants to give back to the community, please reach out to us - we will give you exclusive access of the community.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="border-b border-gray-300">
+        <button
+          class="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-900"
+          onclick="toggleFaq(this)"
+        >
+          <span>What is the format of the series?</span>
+          <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <div class="hidden text-gray-600 py-4">
+          Entire series is in the text format divided into modules. We have tried to balance it with depth while keeping concise so that you can easily consume without getting overwhelmed.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="border-b border-gray-300">
+        <button
+          class="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-900"
+          onclick="toggleFaq(this)"
+        >
+          <span>How can I join Whatsapp Community?</span>
+          <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <div class="hidden text-gray-600 py-4">
+          Once you get access to the Product Management Interview Mastery Series, we will invite you to the Whatsapp community which is active with both aspriing & senior product folks.
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="border-b border-gray-300">
+        <button
+          class="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-900"
+          onclick="toggleFaq(this)"
+        >
+          <span>What is the refund policy?</span>
+          <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <div class="hidden text-gray-600 py-4">
+          We offer a 7-day no questions asked money back guarantee, if you are not satisfied with the course for any reason.
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="border-b border-gray-300">
+        <button
+          class="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-900"
+          onclick="toggleFaq(this)"
+        >
+          <span>What about future updates?</span>
+          <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <div class="hidden text-gray-600 py-4">
+            We will be constantly updating and adding more modules to this series on the basis of feedback. You will receive all the future updates without any extra charges.
+        </div>
+      </div>
+
+      <div class="border-b border-gray-300">
+        <button
+          class="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-900"
+          onclick="toggleFaq(this)"
+        >
+          <span>Last question, why the price is so low if you provide so much value?</span>
+          <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <div class="hidden text-gray-600 py-4">
+          Glad you asked this, our goal is to provide you immense value that you trust the ProductHope. Prices will definetely increase in coming months as we add more modules.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleFaq(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector("i");
+
+    if (content.classList.contains("hidden")) {
+      content.classList.remove("hidden");
+      content.classList.add("block");
+      icon.classList.add("rotate-180");
+    } else {
+      content.classList.remove("block");
+      content.classList.add("hidden");
+      icon.classList.remove("rotate-180");
+    }
+  }
+</script>
 <footer class="bg-gray-900 text-gray-300 py-8 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
@@ -134,32 +376,33 @@
                 <a href="https://substack.com/@producthope" target="_blank" rel="noopener noreferrer" class="footer-link">
                     Substack
                 </a>
-                <a href="#" class="footer-link">
-                    Community
-                </a>
                 <a href="https://theproducthope.com/privacy" class="footer-link">
-                    Privacy & Policy
+                    Privacy
                 </a>
             </div>
         </div>
     </footer>
 </body>
-    <script
-        src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
-        user-profile="https://topmate.io/embed/profile/producthope?theme=D5534D"
-        btn-style='{"backgroundColor":"#000","color":"#fff","border":"1px solid #000"}'
-        embed-version="v1"
-        button-text="Book Services"
-        position-right="30px"
-        position-bottom="30px"
-        custom-padding="0px"
-        custom-font-size="16px"
-        custom-font-weight="500"
-        custom-width="200px"
-        async=""
-        defer=""
-      ></script>
-    <!-- Google tag (gtag.js) -->
+<script>
+        // Toggle Mobile Menu
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scroll Animation (Optional for extra control)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3SW77Z10W"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
